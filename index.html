@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>PHOTONX - Transfer Through Light</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
@@ -15,6 +18,8 @@
 </header>
 
 <main>
+
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="tag">NEXT GENERATION FILE TRANSFER</div>
 
@@ -22,7 +27,8 @@
 
         <p>
             Transfer files between devices using animated QR codes.
-            No Bluetooth. No internet required during transfer.
+            No Bluetooth or internet connection is needed during
+            the optical data transfer itself.
         </p>
 
         <div class="devices">
@@ -40,25 +46,42 @@
         </div>
     </section>
 
+    <!-- TRANSFER SECTION -->
     <section class="transfer">
+
         <h2>START TRANSFERRING</h2>
-        <p>Choose your transfer mode.</p>
+        <p>Choose what you want to do.</p>
 
         <div class="cards">
+
+            <!-- SEND FILE -->
             <div class="card">
                 <div class="card-icon">↑</div>
+
                 <h3>SEND FILE</h3>
+
                 <p>Select a file and generate QR frames.</p>
+
                 <input type="file" id="fileInput">
-                <button onclick="selectFile()">SELECT FILE</button>
+
+                <button onclick="selectFile()">
+                    SELECT FILE
+                </button>
             </div>
 
+            <!-- RECEIVE FILE -->
             <div class="card">
                 <div class="card-icon">↓</div>
+
                 <h3>RECEIVE FILE</h3>
-                <p>Prepare to scan QR codes from another device.</p>
-                <button onclick="receiveFile()">START SCANNING</button>
+
+                <p>Scan QR frames displayed on another device.</p>
+
+                <button onclick="receiveFile()">
+                    START RECEIVER
+                </button>
             </div>
+
         </div>
 
         <div class="file-info" id="fileInfo">
@@ -68,33 +91,94 @@
         <div class="message" id="message">
             Welcome to PHOTONX.
         </div>
+
     </section>
 
+    <!-- QR SENDER -->
     <section class="qr-section">
+
         <h2>QR TRANSFER ENGINE</h2>
 
-        <p id="qrStatus">Select a file to generate QR frames.</p>
+        <p id="qrStatus">
+            Select a file to generate QR frames.
+        </p>
 
         <div id="qrcode"></div>
 
         <div class="controls">
-            <button onclick="previousFrame()">PREVIOUS</button>
-            <button onclick="nextFrame()">NEXT FRAME</button>
+            <button onclick="previousFrame()">
+                PREVIOUS
+            </button>
+
+            <button onclick="nextFrame()">
+                NEXT FRAME
+            </button>
         </div>
 
-        <p id="frameInfo">No QR frames generated</p>
+        <p id="frameInfo">
+            No QR frames generated
+        </p>
 
         <button id="playButton" onclick="toggleAnimation()">
             START ANIMATION
         </button>
+
     </section>
+
+    <!-- QR RECEIVER -->
+    <section class="receiver-section" id="receiverSection">
+
+        <h2>PHOTONX RECEIVER</h2>
+
+        <p>
+            Use your phone or computer camera to scan the QR frames.
+        </p>
+
+        <div class="receiver-options">
+
+            <button onclick="startScanner('environment')">
+                PHONE CAMERA
+            </button>
+
+            <button onclick="startScanner('user')">
+                FRONT CAMERA
+            </button>
+
+        </div>
+
+        <div id="reader"></div>
+
+        <p id="scanStatus">
+            Scanner is not started.
+        </p>
+
+        <div id="receiveProgress">
+            Received frames: 0
+        </div>
+
+        <button onclick="stopScanner()">
+            STOP SCANNER
+        </button>
+
+        <button onclick="downloadReceivedFile()" id="downloadButton" disabled>
+            DOWNLOAD RECEIVED FILE
+        </button>
+
+    </section>
+
 </main>
 
 <footer>
     PHOTONX © 2026 | TRANSFER THROUGH LIGHT
 </footer>
 
+<!-- QR GENERATOR LIBRARY -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<!-- QR CAMERA SCANNER LIBRARY -->
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<!-- OUR JAVASCRIPT -->
 <script src="script.js"></script>
 
 </body>
