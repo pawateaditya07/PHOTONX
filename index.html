@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHOTONX - Transfer Through Light</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">✦ PHOTON<span>X</span></div>
+    <div class="status">● SYSTEM READY</div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="tag">NEXT GENERATION FILE TRANSFER</div>
+
+        <h1>TRANSFER THROUGH <span>LIGHT.</span></h1>
+
+        <p>
+            Transfer files between devices using animated QR codes.
+            No Bluetooth. No internet required during transfer.
+        </p>
+
+        <div class="devices">
+            <div class="phone">
+                <div class="phone-icon">✦</div>
+                <small>SENDER</small>
+            </div>
+
+            <div class="beam">━━━━━━━━</div>
+
+            <div class="phone">
+                <div class="phone-icon">▦</div>
+                <small>RECEIVER</small>
+            </div>
+        </div>
+    </section>
+
+    <section class="transfer">
+        <h2>START TRANSFERRING</h2>
+        <p>Choose your transfer mode.</p>
+
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">↑</div>
+                <h3>SEND FILE</h3>
+                <p>Select a file and generate QR frames.</p>
+                <input type="file" id="fileInput">
+                <button onclick="selectFile()">SELECT FILE</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">↓</div>
+                <h3>RECEIVE FILE</h3>
+                <p>Prepare to scan QR codes from another device.</p>
+                <button onclick="receiveFile()">START SCANNING</button>
+            </div>
+        </div>
+
+        <div class="file-info" id="fileInfo">
+            No file selected
+        </div>
+
+        <div class="message" id="message">
+            Welcome to PHOTONX.
+        </div>
+    </section>
+
+    <section class="qr-section">
+        <h2>QR TRANSFER ENGINE</h2>
+
+        <p id="qrStatus">Select a file to generate QR frames.</p>
+
+        <div id="qrcode"></div>
+
+        <div class="controls">
+            <button onclick="previousFrame()">PREVIOUS</button>
+            <button onclick="nextFrame()">NEXT FRAME</button>
+        </div>
+
+        <p id="frameInfo">No QR frames generated</p>
+
+        <button id="playButton" onclick="toggleAnimation()">
+            START ANIMATION
+        </button>
+    </section>
+</main>
+
+<footer>
+    PHOTONX © 2026 | TRANSFER THROUGH LIGHT
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
